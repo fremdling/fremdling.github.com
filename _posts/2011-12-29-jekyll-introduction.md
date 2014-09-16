@@ -3,6 +3,7 @@ layout: post
 category : lessons
 tagline: "Supporting tagline"
 tags : [intro, beginner, jekyll, tutorial]
+wordpress_id : 1000
 ---
 
 This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
