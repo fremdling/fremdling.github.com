@@ -83,6 +83,7 @@ article .share .gplus:hover {
 .page-header {
   color: #e74c3c;
   text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+  margin-top: 20px;
 }
 
 article{
@@ -169,7 +170,7 @@ footer {
 
 #nav-menu{
     position: fixed;
-    top: 45px;
+    top: 25px;
     right: 45px;
     z-index: 2000;
 }
