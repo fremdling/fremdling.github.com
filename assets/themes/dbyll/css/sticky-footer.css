@@ -3,5 +3,10 @@
 .footere {
   position: absolute;
   bottom: 100px;
-}
+} 
 
+.gsc-input-box {
+    border: 1px solid #D9D9D9;
+    background: none repeat scroll 0% 0% #FFF;
+    height: 45px;
+}
