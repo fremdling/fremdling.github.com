@@ -1,0 +1,7 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+.footere {
+  position: absolute;
+  bottom: 100px;
+}
+
