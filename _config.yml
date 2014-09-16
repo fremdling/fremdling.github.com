@@ -68,7 +68,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : fremdlingru
     livefyre :
       site_id : 123
     intensedebate :
@@ -84,7 +84,7 @@ JB :
   # Set 'provider' to false to turn analytics off globally.
   #
   analytics :
-    provider : google
+    provider : false
     google :
         tracking_id : 'UA-***'
     googleUA :
