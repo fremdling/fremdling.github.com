@@ -3,7 +3,7 @@ layout: post
 title:  "Welcome to Jekyll!"
 tagline: "Supporting tagline"
 date:   2014-09-13 10:26:56
-category: jekyll update
+category: posts
 tags : [intro, beginner, jekyll, tutorial]
 wordpress_id : 1001
 ---

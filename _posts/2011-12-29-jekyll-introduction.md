@@ -1,6 +1,6 @@
 ---
 layout: post
-category : lessons
+category : posts
 tagline: "Supporting tagline"
 tags : [intro, beginner, jekyll, tutorial]
 wordpress_id : 1000
