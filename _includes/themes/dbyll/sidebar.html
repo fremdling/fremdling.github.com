@@ -71,21 +71,7 @@
 	</ul>
 -->
 </div>
-<div></div>
-<div id="search" style="bottom: 10px; position: fixed; width: inherit;">
-<script>
-(function() {
-var cx = '006820282531766490989:q7_wyuyc9xq';
-var gcse = document.createElement('script');
-gcse.type = 'text/javascript';
-gcse.async = true;
-gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-'//www.google.com/cse/cse.js?cx=' + cx;
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(gcse, s);
-})();
-</script>
-<gcse:searchbox-only resultsUrl="/search.html"></gcse:searchbox-only>
-</div>
+
+{% include googlesearch_box %}
          
 <! -- sidebar.html end -->

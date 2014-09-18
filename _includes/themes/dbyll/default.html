@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="ru">
 
 <head>
   <meta charset="utf-8">
@@ -89,10 +89,9 @@
    </button>
    <ul class="dropdown-menu" role="menu">
      <li><a href="{% if BASE_PATH %}{{ BASE_PATH }}{% else %}/{% endif %}"><i class="fa fa-home"></i> Home</a></li>
-     <li><a href="{{ BASE_PATH}}{{ site.JB.categories_path }}"><i class="fa fa-folder"></i> Categories</a></li>
      <li><a href="{{ BASE_PATH}}{{ site.JB.tags_path }}"><i class="fa fa-tags"></i> Tags</a></li>
      <li class="divider"></li>
-     <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+     <li><a href="{{ BASE_PATH}}{{ site.JB.tags_path }}"><i class="fa fa-search"></i> Search</a></li>
    </ul>
  </div>
 
@@ -113,10 +112,11 @@
  </div>
 
  {% include JB/analytics %}
+
  <script type="text/javascript" src="{{ ASSET_PATH }}/resources/jquery/jquery.min.js"></script>
  <script type="text/javascript" src="{{ ASSET_PATH }}/resources/bootstrap/js/bootstrap.min.js"></script>
  <script type="text/javascript" src="{{ ASSET_PATH }}/js/app.js"></script>
-	<script type="text/javascript" src="{{ ASSET_PATH }}/js/go-top.js"></script>
+ <script type="text/javascript" src="{{ ASSET_PATH }}/js/go-top.js"></script>
 </body>
 
 </html>
