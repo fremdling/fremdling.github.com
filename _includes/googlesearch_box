@@ -1,7 +1,7 @@
 <div class="search" style="{% if page.customsearch %}{% else %}bottom: 10px; position: fixed; width: inherit;{% endif %}">
 <script>
   (function() {
-    var cx = '006820282531766490989:q7_wyuyc9xq';
+    var cx = '006820282531766490989:0gnsmgdatti';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
     gcse.async = true;
