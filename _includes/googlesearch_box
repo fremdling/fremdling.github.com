@@ -1,5 +1,7 @@
+{% if page.customsearch %}
+{% else %}
 <div class="search" style="bottom: 10px; position: fixed; width: inherit;">
-
+{% endif %}      
 <script>
   (function() {
     var cx = '006820282531766490989:q7_wyuyc9xq';
@@ -14,5 +16,6 @@
 </script>
 
 <gcse:searchbox-only resultsUrl="/search-result.html"></gcse:searchbox-only>
-
+{% if page.customsearch %}{% else %}
 </div>
+{% endif %}        
