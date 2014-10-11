@@ -13,6 +13,6 @@
   })();
 </script>
 
-<gcse:searchbox-only resultsUrl="/search.html"></gcse:searchbox-only>
+<gcse:searchbox-only resultsUrl="/search-result.html"></gcse:searchbox-only>
 
 </div>
