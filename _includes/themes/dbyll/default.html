@@ -89,6 +89,7 @@
    </button>
    <ul class="dropdown-menu" role="menu">
      <li><a href="{% if BASE_PATH %}{{ BASE_PATH }}{% else %}/{% endif %}"><i class="fa fa-home"></i> Home</a></li>
+     <li><a href="{{ BASE_PATH}}{{ site.JB.about_path }}"><i class="fa fa-user"></i> About</a></li>
      <li><a href="{{ BASE_PATH}}{{ site.JB.tags_path }}"><i class="fa fa-tags"></i> Tags</a></li>
      <li class="divider"></li>
      <li><a href="{{ BASE_PATH}}{{ site.JB.search_path }}"><i class="fa fa-search"></i> Search</a></li>
