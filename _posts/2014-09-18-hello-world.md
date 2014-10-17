@@ -4,7 +4,7 @@ tagline:  "Ave, Caesar, morituri te salutant!"
 title: "Naturus sum"
 date:   2014-09-18 11:56:56
 category: posts
-tags : [личное]
+tags : [Личное]
 wordpress_id : 1000
 ---
 
