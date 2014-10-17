@@ -1,7 +1,7 @@
 ---
 layout: post
 tagline:  ""
-title: "Простой мониторинг подключения USB устройств в Windows"
+title: "Мониторинг подключения USB устройств в Windows"
 date:   2014-10-14 23:56:56
 category: posts
 tags : [WIN,ScripFu]
