@@ -17,6 +17,8 @@ wordpress_id : 1000
 
 ## Контактные данные
 
++ <script type="text/javascript"> id=189064; t=2; </script><script type="text/javascript" src="http://kontactr.com/kpu/kontactr.js"></script>
+
 + e-mail : me@fremdling.ru
 + icq : 313797376
 + skype : fremdling.now
