@@ -37,44 +37,43 @@ wordpress_id : 1001
 
 Осталось применить админские навыки копипасты и родить скрипт выполняющий поставленную задачу с желаемыми доработками. 
 
-~~~
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}\\.\root\cimv2")  
+~~~vb
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}\\.\root\cimv2") 
 
-'USB insert/remove hook procedure  
-Sub event_OnObjectReady( objEvent, objContext )  
+'USB insert/remove hook procedure
+Sub event_OnObjectReady( objEvent, objContext )
 
- With objEvent  
+ With objEvent
    Dev = Left(.TargetInstance.DeviceId,InStrRev(.TargetInstance.DeviceId,"\")-1)
-   If deviceIDs.Exists(Dev) Then  
-   WScript.Echo date(),time(),"Device:", Dev, "Event:", .Path_.Class  
-   Select Case .Path_.Class  
-    Case "__InstanceCreationEvent"  
+   If deviceIDs.Exists(Dev) Then
+   WScript.Echo date(),time(),"Device:", Dev, "Event:", .Path_.Class
+   Select Case .Path_.Class
+    Case "__InstanceCreationEvent"
       If deviceStat.Exists(Dev) then
        If deviceStat.Item(Dev) <> "Inserted" Then
         deviceStat.remove(Dev)
         devicestat.add Dev,"Inserted"
         OnInsert(deviceExec.Item(Dev))
-       End If  
+       End If
       else
         devicestat.add Dev,"Inserted"
         OnInsert(deviceExec.Item(Dev))
       end if
-      
-    Case "__InstanceDeletionEvent"  
+    Case "__InstanceDeletionEvent"
      If deviceStat.Exists(Dev) then
       If deviceStat.Item(Dev) <> "Removed" Then
         deviceStat.remove(Dev)
         devicestat.add Dev,"Removed"
         OnRemove(deviceKill.Item(Dev))
-      End If  
+      End If
      else
        devicestat.add Dev,"Removed" 
-       OnRemove(deviceKill.Item(Dev))      
+       OnRemove(deviceKill.Item(Dev))
      end if
-    End Select  
-  End If  
- End With  
-End Sub  
+    End Select
+  End If
+ End With
+End Sub
   
 Sub OnInsert(ExecCmd) 
 	On Error Resume Next
@@ -88,7 +87,7 @@ Sub OnInsert(ExecCmd)
 		Log "Код ошибки: " & Res
 	End If
 	On Error GOTO 0
-End Sub  
+End Sub
   
 Sub OnRemove(KillCmd)
 	On Error Resume Next
@@ -128,44 +127,45 @@ End Sub
 Function alreadyRunning()  
  alreadyRunning = False  
  wscrCount = ProcessCount( "%wscript%" & WScript.ScriptName & "%" )  
- cscrCount = ProcessCount( "%cscript%" & WScript.ScriptName & "%" )  
- If  wscrCount > 1 or cscrCount > 1 Then:alreadyRunning = True  
-End Function  
+ cscrCount = ProcessCount( "%cscript%" & WScript.ScriptName & "%" )
+ If  wscrCount > 1 or cscrCount > 1 Then:alreadyRunning = True
+End Function
   
-Public Function ProcessCount(likestr)  
- Set colItems = objWMIService.ExecQuery("SELECT Name,CommandLine FROM Win32_Process WHERE CommandLine Like '" & likestr & "'")  
- ProcessCount = colItems.Count  
-End Function   
+Public Function ProcessCount(likestr)
+ Set colItems = objWMIService.ExecQuery("SELECT Name,CommandLine FROM Win32_Process WHERE CommandLine Like '" & likestr & "'")
+ ProcessCount = colItems.Count
+End Function
 
 Sub Log(text)
-	WScript.Echo date(), time(), text  
+	WScript.Echo date(), time(), text
 End Sub
 
-If alreadyRunning() Then: WScript.Quit  
+If alreadyRunning() Then: WScript.Quit
   
-Set objSink = WScript.CreateObject("WBemScripting.SWbemSink","event_")  
-Set objShell = CreateObject("WScript.Shell")  
+Set objSink = WScript.CreateObject("WBemScripting.SWbemSink","event_")
+Set objShell = CreateObject("WScript.Shell") 
 
-Set deviceIDs = CreateObject("Scripting.Dictionary")  
-Set deviceExec = CreateObject("Scripting.Dictionary")  
-Set deviceKill = CreateObject("Scripting.Dictionary")  
-Set deviceStat = CreateObject("Scripting.Dictionary")  
+Set deviceIDs = CreateObject("Scripting.Dictionary")
+Set deviceExec = CreateObject("Scripting.Dictionary")
+Set deviceKill = CreateObject("Scripting.Dictionary")
+Set deviceStat = CreateObject("Scripting.Dictionary")
 
-Log  "Init event hook..."  
+Log  "Init event hook..."
 objWMIService.ExecNotificationQueryAsync objSink, "Select * from __InstanceOperationEvent within 1 where TargetInstance ISA 'Win32_PnPEntity'"  
 
-Log  "Init devices..."  
+Log  "Init devices..."
 ' Alladin HASP Key
 'EnumerateDeviceByName "Aladdin USB Key","C:\2zserver\start.cmd","2zserver.exe"
 EnumerateDeviceByID "USB\VID_0529&PID_0001","C:\2zserver\start.cmd","2zserver.exe"
 ' USB flash (test)
 'EnumerateDeviceByID "USB\VID_058F&PID_6387","notepad.exe","notepad.exe"
 
-Log "Monitoring..."  
-Do  
- WScript.Sleep 1000  
-Loop  
+Log "Monitoring..."
+Do
+ WScript.Sleep 1000
+Loop
 ~~~
+
 
 Работа скрипта сводится к следующему:
 
@@ -183,7 +183,7 @@ Loop
  
 К примеру, что бы при установке определённой флешки с ID="USB\VID_058F&PID_6387" открывался блокнот достаточно раскомментировать строчку:
 
-~~~
+~~~vb
 call EnumerateDeviceByID("USB\VID_058F&PID_6387","notepad.exe","notepad.exe")
 ~~~
 
