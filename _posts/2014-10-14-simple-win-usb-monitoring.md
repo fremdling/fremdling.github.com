@@ -4,7 +4,7 @@ tagline:  ""
 title: "Мониторинг подключения USB устройств в Windows"
 date:   2014-10-14 23:56:56
 category: posts
-tags : [WIN,ScripFu]
+tags : [WIN,ScriptFu]
 wordpress_id : 1001
 ---
 
