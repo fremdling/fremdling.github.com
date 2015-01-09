@@ -37,7 +37,7 @@ wordpress_id : 1001
 
 Осталось применить админские навыки копипасты и родить скрипт выполняющий поставленную задачу с желаемыми доработками. 
 
-~~~vb
+{% highlight vb linenos=table %}
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}\\.\root\cimv2") 
 
 'USB insert/remove hook procedure
@@ -100,33 +100,33 @@ Sub OnRemove(KillCmd)
 		objProc.Terminate
 	Next
 	On Error GOTO 0
-End Sub  
+End Sub
 
-Sub EnumerateDeviceByID(Id, ExecCMD, KillCMD)  
-  If Not deviceIDs.Exists(Id) Then  
+Sub EnumerateDeviceByID(Id, ExecCMD, KillCMD)
+  If Not deviceIDs.Exists(Id) Then
    deviceIDs.Add Id, Id
    deviceExec.Add Id, ExecCMD
    deviceKill.Add Id, KillCMD
    Log " Monitoring device: " & Id
-  End If  
-End Sub  
+  End If
+End Sub
 
-Sub EnumerateDeviceByName(name, ExecCMD, KillCMD)  
+Sub EnumerateDeviceByName(name, ExecCMD, KillCMD)
  Set objDevices = objWMIService.ExecQuery("SELECT DeviceId FROM Win32_PnPSignedDriver WHERE Description='" & name & "'")
- For Each dev in objDevices  
+ For Each dev in objDevices
   deviceId = Left(dev.DeviceId,InStrRev(dev.DeviceId,"\")-1)
-  If Not deviceIDs.Exists(deviceId) Then  
-   deviceIDs.Add deviceId, deviceId  
+  If Not deviceIDs.Exists(deviceId) Then
+   deviceIDs.Add deviceId, deviceId
    deviceExec.Add Id, ExecCMD
-   deviceKill.Add Id, KillCMD  
+   deviceKill.Add Id, KillCMD
    WScript.Echo " Monitoring device: " & deviceId
-  End If  
- Next  
-End Sub  
+  End If
+ Next
+End Sub
 
-Function alreadyRunning()  
- alreadyRunning = False  
- wscrCount = ProcessCount( "%wscript%" & WScript.ScriptName & "%" )  
+Function alreadyRunning()
+ alreadyRunning = False
+ wscrCount = ProcessCount( "%wscript%" & WScript.ScriptName & "%" )
  cscrCount = ProcessCount( "%cscript%" & WScript.ScriptName & "%" )
  If  wscrCount > 1 or cscrCount > 1 Then:alreadyRunning = True
 End Function
@@ -164,8 +164,7 @@ Log "Monitoring..."
 Do
  WScript.Sleep 1000
 Loop
-~~~
-
+{% endhighlight %}
 
 Работа скрипта сводится к следующему:
 
@@ -183,9 +182,9 @@ Loop
  
 К примеру, что бы при установке определённой флешки с ID="USB\VID_058F&PID_6387" открывался блокнот достаточно раскомментировать строчку:
 
-~~~vb
+{% highlight vb linenos %}
 call EnumerateDeviceByID("USB\VID_058F&PID_6387","notepad.exe","notepad.exe")
-~~~
+{% endhighlight %}
 
 #Результаты
 Чего хотел, того и добился. Донгл вытаскивают - вставляют. Мне не надо лезть удалённо и делать что-то руками. Всё автоматизированно и ленивый админ может потратить освободившееся время рационально и с пользой. 
